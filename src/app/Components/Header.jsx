@@ -94,7 +94,7 @@ const Header = () => {
       </div>
 
       {menuState ? (
-        <div className='flex flex-col bg-white mt-[100px] justify-start items-center gap-[30px] sm:hidden '>
+        <div className='flex flex-col bg-black mt-[100px] justify-start items-center gap-[30px] sm:hidden '>
           <div>
             <Link href='/pages/Home'>
               <button onClick={() => {

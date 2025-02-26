@@ -73,13 +73,13 @@ events_data = [
     {
         "title": "Redshift",
         "desc": "Redshift is the Astronomy Club's annual magazine, showcasing the club's activities, projects, and achievements throughout the year. It features insightful articles from RAWC, an open-to-all college competition, along with global astronomy updates, fun cosmic facts, and the latest space discoveries.",
-        "img": "/redshift.jpg",
+        "img": "/redshift.png",
         "link": "https://www.instagram.com/astro.iitbhu/p/DE7r437slGE/?img_index=1"
     },
     {
         "title": "Astrophotography",
         "desc": "The Astronomy Club, IIT BHU actively explores astrophotography, combining technical skills and creativity to capture breathtaking images of celestial objects. Through observational sessions, members practice using stacking techniques and specialized software to enhance clarity and detail.",
-        "img": "/astrophoto.jpg",
+        "img": "/astrophoto.png",
         "link": "https://www.instagram.com/p/C34TLxboAwC/?hl=en"
     },
 
