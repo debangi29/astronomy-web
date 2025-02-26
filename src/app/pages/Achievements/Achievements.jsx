@@ -134,15 +134,22 @@ const nssc2018 = [
 
 const Achievements = () => {
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+    const [isMobile, setIsMobile] = useState(false);
 
-    // Update cursor position on mouse movement
     const handleMouseMove = (e) => {
         setCursorPosition({ x: e.clientX, y: e.clientY });
     };
 
     useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
+        };
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
         window.addEventListener('mousemove', handleMouseMove);
         return () => {
+            window.removeEventListener('resize', checkMobile);
             window.removeEventListener('mousemove', handleMouseMove);
         };
     }, []);
@@ -159,15 +166,11 @@ const Achievements = () => {
         >
 
             {/* Custom Star Cursor */}
-            <div
-                className="fixed top-0 left-0 pointer-events-none"
-                style={{
-                    transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
-                    zIndex: 1000,
-                }}
-            >
-                <Image src={star} alt="Star Cursor" width={30} height={30} />
-            </div>
+            {!isMobile && (
+                <div className='fixed top-0 left-0 pointer-events-none' style={{ transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`, zIndex: 1000 }}>
+                    <Image src={star} alt="Star Cursor" width={30} height={30} />
+                </div>
+            )}
             {/* Heading */}
             <motion.h1
                 className="text-4xl font-bold mb-6 mt-20 text-center text-white"

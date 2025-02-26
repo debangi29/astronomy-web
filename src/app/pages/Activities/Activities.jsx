@@ -9,34 +9,43 @@ import star from '../../../../public/star.png';
 
 const Activities = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleMouseMove = (e) => {
-    setCursorPosition({ x: e.clientX, y: e.clientY });
+    if (!isMobile) {
+      setCursorPosition({ x: e.clientX, y: e.clientY });
+    }
   };
 
   useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
+      window.removeEventListener('resize', checkMobile);
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
   return (
     <>
-      <div
-        className="fixed top-0 left-0 pointer-events-none"
-        style={{
-          transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
-          zIndex: 1000,
-        }}
-      >
-        <Image
-          src={star}
-          alt="Star Cursor"
-          width={cursorPosition.x > 800 ? 40 : 20}
-          height={cursorPosition.x > 800 ? 40 : 20}
-        />
-      </div>
+      {!isMobile && (
+        <div
+          className="fixed top-0 left-0 pointer-events-none"
+          style={{
+            transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
+            zIndex: 1000,
+          }}
+        >
+          <Image
+            src={star}
+            alt="Star Cursor"
+            width={cursorPosition.x > 800 ? 30 : 20}
+            height={cursorPosition.x > 800 ? 30 : 20}
+          />
+        </div>
+      )}
 
       <motion.h1
         className="text-3xl sm:text-4xl font-bold mb-6 text-center text-white mt-24"

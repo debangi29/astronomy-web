@@ -101,7 +101,7 @@ const Header = () => {
                 setmenuState(!menuState);
               }
 
-              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-white'>
                 Home
               </button>
             </Link>
@@ -112,7 +112,7 @@ const Header = () => {
                 setmenuState(!menuState);
               }
 
-              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-white'>
                 Yuri's Night
               </button>
             </Link>
@@ -123,7 +123,7 @@ const Header = () => {
                 setmenuState(!menuState);
               }
 
-              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-white'>
                 Blogs
               </button>
             </Link>
@@ -134,7 +134,7 @@ const Header = () => {
                 setmenuState(!menuState);
               }
 
-              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-white'>
                 Projects
               </button>
             </Link>
@@ -145,7 +145,7 @@ const Header = () => {
                 setmenuState(!menuState);
               }
 
-              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-white'>
                 Activities
               </button>
             </Link>
@@ -156,7 +156,7 @@ const Header = () => {
                 setmenuState(!menuState);
               }
 
-              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-white'>
                 Gallery
               </button>
             </Link>
@@ -167,7 +167,7 @@ const Header = () => {
                 setmenuState(!menuState);
               }
 
-              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-white'>
                 Achievements
               </button>
             </Link>
@@ -178,7 +178,7 @@ const Header = () => {
                 setmenuState(!menuState);
               }
 
-              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-white'>
                 Our Team
               </button>
             </Link>

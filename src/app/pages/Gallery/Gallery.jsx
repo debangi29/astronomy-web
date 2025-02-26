@@ -8,6 +8,7 @@ function Gallery({ images }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   const openModal = (index) => {
     setSelectedImageIndex(index);
@@ -43,8 +44,15 @@ function Gallery({ images }) {
   };
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
+      window.removeEventListener('resize', checkMobile);
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
@@ -52,15 +60,11 @@ function Gallery({ images }) {
   return (
     <>
       {/* Custom Star Cursor */}
-      <div
-        className="fixed top-0 left-0 pointer-events-none"
-        style={{
-          transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
-          zIndex: 1000,
-        }}
-      >
-        <Image src={star} alt="Star Cursor" width={30} height={30} />
-      </div>
+      {!isMobile && (
+        <div className='fixed top-0 left-0 pointer-events-none' style={{ transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`, zIndex: 1000 }}>
+          <Image src={star} alt="Star Cursor" width={30} height={30} />
+        </div>
+      )}
 
       <div className="bg-black container px-5 py-10 mx-auto" style={{ cursor: 'none' }}>
         <div className="flex flex-col text-center text-white w-full mb-10">

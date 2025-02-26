@@ -41,7 +41,7 @@ events_data = [
     },
     {
         "title": "National Space Day",
-        "desc": "National Space Day is a three-day event hosted in August to commemorate the successful landing of Chandrayaan-3 in 2023. Organized at the institute level, it features exciting events like Astro Quiz, Astro Debate, Solar and Night sky observation sessions, informative stalls, and guest talks on astronomy.In its very first edition of 2024, it played host to Padma Shri Awardee Prof H.C. Verma Sir as the Chief Guest who enlightened everyone with his amazing words. Interactive session on “Ancient Indian Astronomy” was also conducted featuring Dr. V. Ramananthan Sir from IIT(BHU) Varanasi. The Astronomy Club also conducts outreach programs in schools, inspiring young minds and spreading awareness about space science.",
+        "desc": "National Space Day is a three-day event hosted in August to commemorate the successful landing of Chandrayaan-3 in 2023. Organized at the institute level, it features exciting events like Astro Quiz, Astro Debate, Solar and Night sky observation sessions, informative stalls, and guest talks on astronomy. In its very first edition of 2024, it played host to Padma Shri Awardee Prof H.C. Verma Sir as the Chief Guest who enlightened everyone with his amazing words. Interactive session on “Ancient Indian Astronomy” was also conducted featuring Dr. V. Ramananthan Sir from IIT(BHU) Varanasi. The Astronomy Club also conducts outreach programs in schools, inspiring young minds and spreading awareness about space science.",
         "img": "/nsd.png",
         "link": "https://www.youtube.com/watch?v=ftiiwx0kSp4"
     },
@@ -69,6 +69,18 @@ events_data = [
         "desc": "Telescon is our first event for freshers, a DIY telescope making competition, in which they learn about the basics by building telescopes from scratch. This event has two rounds, namely Presentation & Telescope Building. In the first round, the teams's ideas are judged on sustainability and feasibility, and in the latter, they build a working model of the telescope.",
         "img": "/telescon.png",
         "link": "https://www.instagram.com/p/C5gSUiYs4CY/"
+    },
+    {
+        "title": "Redshift",
+        "desc": "Redshift is the Astronomy Club's annual magazine, showcasing the club's activities, projects, and achievements throughout the year. It features insightful articles from RAWC, an open-to-all college competition, along with global astronomy updates, fun cosmic facts, and the latest space discoveries.",
+        "img": "/redshift.jpg",
+        "link": "https://www.instagram.com/astro.iitbhu/p/DE7r437slGE/?img_index=1"
+    },
+    {
+        "title": "Astrophotography",
+        "desc": "The Astronomy Club, IIT BHU actively explores astrophotography, combining technical skills and creativity to capture breathtaking images of celestial objects. Through observational sessions, members practice using stacking techniques and specialized software to enhance clarity and detail.",
+        "img": "/astrophoto.jpg",
+        "link": "https://www.instagram.com/p/C34TLxboAwC/?hl=en"
     },
 
 ]

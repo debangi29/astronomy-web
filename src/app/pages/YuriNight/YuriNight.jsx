@@ -87,13 +87,24 @@ const EventCard = ({ event, index }) => {
 
 const YuriNight = () => {
     const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+    const [isMobile, setIsMobile] = useState(false);
+
+    const handleMouseMove = (e) => {
+        setCursorPosition({ x: e.clientX, y: e.clientY });
+    };
 
     useEffect(() => {
-        const handleMouseMove = (e) => {
-            setCursorPosition({ x: e.clientX, y: e.clientY });
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth <= 768);
         };
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
+
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('resize', checkMobile);
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
     }, []);
 
     const events = [
@@ -142,22 +153,11 @@ const YuriNight = () => {
     return (
         <>
             {/* Custom Star Cursor */}
-            <div
-                className="fixed top-0 left-0 pointer-events-none"
-                style={{
-                    transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
-                    zIndex: 1000,
-                    pointerEvents: "none",
-                }}
-            >
-                <Image
-                    src={star}
-                    alt="Star Cursor"
-                    width={30}
-                    height={30}
-                    className="animate-spin-slow"
-                />
-            </div>
+            {!isMobile && (
+                <div className='fixed top-0 left-0 pointer-events-none' style={{ transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`, zIndex: 1000 }}>
+                    <Image src={star} alt="Star Cursor" width={30} height={30} />
+                </div>
+            )}
 
             <div
                 style={{

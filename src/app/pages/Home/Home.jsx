@@ -33,60 +33,53 @@ const sectionVariants = {
 
 const Home = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
   const handleMouseMove = (e) => {
     setCursorPosition({ x: e.clientX, y: e.clientY });
   };
 
   useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
     window.addEventListener('mousemove', handleMouseMove);
     return () => {
+      window.removeEventListener('resize', checkMobile);
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
 
   return (
     <>
-      <div className='h-screen mt-[50px] bg-black flex flex-col md:flex-row justify-between items-center px-6 md:px-12'>
-        <div className='flex flex-col text-center md:text-left md:w-1/2 mt-10 md:mt-20'>
-          <h1 className='text-white text-3xl md:text-5xl font-bold'>
+      <div className='min-h-screen mt-[50px] bg-black flex flex-col md:flex-row justify-between items-center px-6 md:px-12'>
+        <div className='flex flex-col text-center md:text-left md:w-1/2 mt-10 md:mt-20 space-y-4'>
+          <h1 className='text-white text-3xl md:text-5xl font-bold leading-tight'>
             <span className={roboto.className}>Step into the Wonders of the Astronomy Club!</span>
           </h1>
-          <p className='text-white text-sm md:text-lg mt-4'>
+          <p className='text-white text-sm md:text-lg leading-relaxed'>
             <span className={roboto.className}>Unveiling the Mysteries of the Universe, We are the <span className='text-gradient font-bold'>Astronomy</span> club of IIT BHU.</span>
           </p>
           <Link href='/pages/Activities'>
-            <button className='bg-gradient-to-r from-white to-gray-400 rounded-md w-32 mt-6 px-4 py-2 text-black font-bold text-lg'>
+            <button className='bg-gradient-to-r from-white to-gray-400 rounded-md w-full sm:w-32 mt-6 px-4 py-2 text-black font-bold text-lg'>
               Explore
             </button>
           </Link>
           <h2 className='text-white text-2xl md:text-4xl font-bold mt-6'>Who Are We?</h2>
-          <p className='mt-4 text-white text-sm md:text-lg'>
+          <p className='text-white text-sm md:text-lg leading-relaxed'>
             <span className={roboto.className}>
-              The Astronomy Club, IIT (BHU) Varanasi, is a passionate <br />
-              community of space enthusiasts, and aspiring astrophysicists <br />
-              who love exploring the mysteries of the cosmos.<br />
-              We explore the universe through observational sessions,<br />
-              astrophotography, workshops and discussions on celestial phenomena.<br />
-              Our club provides a platform for those students who are interested<br />
-              in astronomy and wanted to explore it by engaging in hands-on <br />
-              activities like observational sessions, and research projects in astrophysics.<br />
-              Whether you are a seasoned astronomer or just curious about <br />
-              the night sky, the Astronomy Club welcomes all who is curious<br />
-              about the vast and beautiful universe. <br />
-              Join us as we reach for the stars!
+              The Astronomy Club, IIT (BHU) Varanasi, is a passionate community of space enthusiasts and aspiring astrophysicists. We explore the universe through observational sessions, astrophotography, workshops, and discussions on celestial phenomena. Our club provides a platform for students interested in astronomy, allowing hands-on activities like observational sessions and research projects in astrophysics. Whether you are a seasoned astronomer or just curious about the night sky, the Astronomy Club welcomes all who are eager to explore the vast and beautiful universe. Join us as we reach for the stars!
             </span>
           </p>
         </div>
 
-        <div className='flex justify-center items-center md:w-1/2 relative mt-10 md:mt-0'>
+        <div className='flex justify-center items-center md:w-1/2 relative mt-10 md:mt-0 w-full'>
           <ParticleEffect />
-          <motion.div
-            className='absolute'
-            variants={heroVariants}
-            animate="visible"
-          >
-            <Image src={Hero} height={300} width={300} alt="hero" className='w-64 md:w-80' />
+          <motion.div className='absolute' variants={heroVariants} animate="visible">
+            <Image src={Hero} height={300} width={300} alt="hero" className='w-48 sm:w-64 md:w-80' />
           </motion.div>
         </div>
       </div>
@@ -107,15 +100,17 @@ const Home = () => {
         </motion.ul>
       </motion.div>
 
-      <div className='mt-6 bg-gradient-to-r from-black-500 to-green-500 p-4 text-center'>
+      <div className='mt-6 bg-gradient-to-r from-black to-white-500 p-4 text-center'>
         <p className='text-white font-bold text-lg md:text-xl'>
-          Welcome to the Astronomy Club! Join us in exploring the universe.
+          Welcome to the Astronomy Club! Join us in exploring the universe !
         </p>
       </div>
 
-      <div className='fixed top-0 left-0 pointer-events-none' style={{ transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`, zIndex: 1000 }}>
-        <Image src={star} alt="Star Cursor" width={40} height={20} />
-      </div>
+      {!isMobile && (
+        <div className='fixed top-0 left-0 pointer-events-none' style={{ transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`, zIndex: 1000 }}>
+          <Image src={star} alt="Star Cursor" width={30} height={30} />
+        </div>
+      )}
     </>
   )
 }
