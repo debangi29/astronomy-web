@@ -7,14 +7,6 @@ import Image from 'next/image';
 import { motion } from "framer-motion";
 import star from '../../../../public/star.png';
 
-const containerStyle = {
-  margin: '60px 150px',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-  cursor: 'none'
-};
-
 const BlogPage = () => {
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
 
@@ -42,30 +34,30 @@ const BlogPage = () => {
         <Image src={star} alt="Star Cursor" width={30} height={30} />
       </div>
       <motion.h1
-        className="text-4xl font-bold mb-6 mt-20 text-center text-white"
+        className="text-3xl sm:text-4xl font-bold mb-6 mt-20 text-center text-white"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
         Our Blogs
       </motion.h1>
-      <div style={containerStyle}>
-        <div className='flex flex-wrap justify-center gap-x-10 gap-y-10'>
+      <div className="mx-4 sm:mx-10 md:mx-20 lg:mx-36 xl:mx-48 flex flex-col items-center">
+        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
           {blogs_data.map((blog, index) => (
             <motion.div
               key={blog.title}
-              className="blog-card-wrapper"
+              className="w-full bg-gray-800 rounded-lg overflow-hidden shadow-lg"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut", delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <BlogCard
-                title={blog.title}
-                image={blog.img}
-                disc={blog.desc}
-                link={blog.link}
-              />
+              <a href={blog.link} target="_blank" rel="noopener noreferrer">
+                <Image src={blog.img} alt={blog.title} width={400} height={250} className="w-full h-60 object-cover" />
+                <div className="p-4 text-white text-center">
+                  <h2 className="text-xl font-semibold mb-2">{blog.title}</h2>
+                </div>
+              </a>
             </motion.div>
           ))}
         </div>
