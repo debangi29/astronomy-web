@@ -118,13 +118,24 @@ const Header = () => {
             </Link>
           </div>
           <div>
-            <Link href='/pages/Blogs'>
+            <Link href='/pages/Blog'>
               <button onClick={() => {
                 setmenuState(!menuState);
               }
 
               } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
                 Blogs
+              </button>
+            </Link>
+          </div>
+          <div>
+            <Link href='/pages/Projects'>
+              <button onClick={() => {
+                setmenuState(!menuState);
+              }
+
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+                Projects
               </button>
             </Link>
           </div>
@@ -147,6 +158,28 @@ const Header = () => {
 
               } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
                 Gallery
+              </button>
+            </Link>
+          </div>
+          <div>
+            <Link href='/pages/Achievements'>
+              <button onClick={() => {
+                setmenuState(!menuState);
+              }
+
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+                Achievements
+              </button>
+            </Link>
+          </div>
+          <div>
+            <Link href='/pages/Team'>
+              <button onClick={() => {
+                setmenuState(!menuState);
+              }
+
+              } className='hover:font-bold transition-transform transform hover:scale-110 text-black'>
+                Our Team
               </button>
             </Link>
           </div>
